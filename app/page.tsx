@@ -9,8 +9,9 @@ import VoiceProfileModal from './components/VoiceProfileModal';
 import type { VoiceProfile } from './components/VoiceProfileModal';
 import WelcomeScreen from './components/WelcomeScreen';
 import VoiceLearning from './components/VoiceLearning';
+import LimitReached from './components/LimitReached';
 
-const MAX_MESSAGES_PER_DAY = 10;
+const MAX_MESSAGES_PER_DAY = 5;
 
 // Pre-scripted opening messages (avoid cold-start API call)
 function getOpeningMessages(hasVoice: boolean): ChatMessage[] {
@@ -96,6 +97,13 @@ export default function Home() {
   const handleClearChat = useCallback(() => {
     setMessages([]);
     setHasStarted(false);
+  }, []);
+
+  const handleResetLimit = useCallback(() => {
+    setMessagesGeneratedToday(0);
+    try {
+      localStorage.setItem('genuine_messages_today', '0');
+    } catch {}
   }, []);
 
   const handleClearVoice = useCallback(() => {
@@ -294,12 +302,15 @@ export default function Home() {
       ) : hasStarted && !voiceProfile ? (
         // Cinematic voice learning — shown to new users before chat
         <VoiceLearning onComplete={analyzeAndSaveVoice} />
+      ) : messagesRemaining <= 0 ? (
+        // MVP testing limit reached
+        <LimitReached onReset={handleResetLimit} />
       ) : (
         <ChatMessages messages={messages} isLoading={isLoading} />
       )}
 
-      {/* Input only shown in chat mode (when voice exists) */}
-      {hasStarted && voiceProfile && (
+      {/* Input only shown in chat mode (when voice exists and limit not hit) */}
+      {hasStarted && voiceProfile && messagesRemaining > 0 && (
         <ChatInput
           onSend={handleSendMessage}
           disabled={isLoading}
