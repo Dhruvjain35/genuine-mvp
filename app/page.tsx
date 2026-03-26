@@ -70,23 +70,6 @@ export default function LandingPage() {
         }} />
 
         <div style={{ position: 'relative', maxWidth: '680px', margin: '0 auto' }}>
-          {/* Badge */}
-          <div
-            className="fade-up stagger-1"
-            style={{
-              display: 'inline-flex', alignItems: 'center', gap: '6px',
-              backgroundColor: 'rgba(196, 120, 74, 0.1)',
-              border: '1px solid rgba(196, 120, 74, 0.2)',
-              borderRadius: '100px', padding: '5px 14px',
-              marginBottom: '28px',
-            }}
-          >
-            <span style={{ width: 7, height: 7, borderRadius: '50%', backgroundColor: '#C4784A', display: 'inline-block' }} />
-            <span style={{ fontSize: '12px', fontWeight: 600, color: '#C4784A', fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: '0.02em' }}>
-              beta — tested by 40+ people
-            </span>
-          </div>
-
           {/* Wordmark */}
           <div
             className="fade-up stagger-2"
@@ -140,12 +123,12 @@ export default function LandingPage() {
             className="fade-up"
             style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap', animationDelay: '280ms' }}
           >
-            <Link href="/app">
+            <Link href="/waitlist">
               <button
                 className="btn-primary"
                 style={{ padding: '14px 32px', borderRadius: '14px', fontSize: '16px' }}
               >
-                try genUine →
+                join the waitlist →
               </button>
             </Link>
             <a href="#how-it-works">
@@ -182,7 +165,7 @@ export default function LandingPage() {
                 <p style={{ fontSize: '13px', color: '#6B5E52', lineHeight: 1.5, marginBottom: '4px' }}>
                   "it lowk copied my tone — I was genuinely surprised"
                 </p>
-                <p style={{ fontSize: '11px', color: '#A08C7C', fontWeight: 600 }}>Suhani · beta tester</p>
+                <p style={{ fontSize: '11px', color: '#A08C7C', fontWeight: 600 }}>Suhani</p>
               </div>
             </div>
           </div>
@@ -282,7 +265,6 @@ export default function LandingPage() {
             >
               real reactions from real people
             </h2>
-            <p style={{ fontSize: '14px', color: '#A08C7C' }}>tested by 40+ people during our beta</p>
           </ScrollReveal>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '16px' }}>
@@ -311,7 +293,7 @@ export default function LandingPage() {
                     <div style={{ width: 28, height: 28, borderRadius: '50%', backgroundColor: 'rgba(196, 120, 74, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                       <span style={{ fontSize: '12px', fontWeight: 700, color: '#C4784A' }}>{q.name[0]}</span>
                     </div>
-                    <span style={{ fontSize: '13px', color: '#A08C7C', fontWeight: 500 }}>{q.name} · beta tester</span>
+                    <span style={{ fontSize: '13px', color: '#A08C7C', fontWeight: 500 }}>{q.name}</span>
                   </div>
                 </div>
               </ScrollReveal>
@@ -403,9 +385,9 @@ export default function LandingPage() {
                     <span style={{ fontSize: '14px', color: '#6B5E52' }}>{f}</span>
                   </div>
                 ))}
-                <Link href="/app">
+                <Link href="/waitlist">
                   <button className="btn-ghost w-full py-3 rounded-xl text-sm mt-4" style={{ width: '100%', marginTop: '20px' }}>
-                    get started
+                    join waitlist
                   </button>
                 </Link>
               </div>
@@ -487,12 +469,12 @@ export default function LandingPage() {
           <p style={{ fontSize: '17px', color: '#6B5E52', marginBottom: '40px', lineHeight: 1.6 }}>
             your next real conversation is one message away.
           </p>
-          <Link href="/app">
+          <Link href="/waitlist">
             <button
               className="btn-primary"
               style={{ padding: '16px 40px', borderRadius: '16px', fontSize: '17px' }}
             >
-              try genUine — it&apos;s free →
+              join the waitlist — it&apos;s free →
             </button>
           </Link>
           <p

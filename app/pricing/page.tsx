@@ -25,30 +25,6 @@ const PRO_FEATURES = [
 
 export default function PricingPage() {
   const [billing, setBilling] = useState<'monthly' | 'yearly'>('yearly');
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
-
-  const handleCheckout = async (plan: 'monthly' | 'yearly') => {
-    setLoading(true);
-    setError('');
-    try {
-      const res = await fetch('/api/create-checkout-session', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ plan }),
-      });
-      const data = await res.json();
-      if (data.url) {
-        window.location.href = data.url;
-      } else if (data.error) {
-        setError(data.error);
-      }
-    } catch {
-      setError('something went wrong. try again?');
-    } finally {
-      setLoading(false);
-    }
-  };
 
   return (
     <div style={{ backgroundColor: '#FAF9F7', minHeight: '100vh' }}>
@@ -59,6 +35,19 @@ export default function PricingPage() {
 
           {/* Header */}
           <ScrollReveal style={{ textAlign: 'center', marginBottom: '48px' }}>
+            {/* Pre-launch banner */}
+            <div style={{
+              display: 'inline-flex', alignItems: 'center', gap: '6px',
+              backgroundColor: 'rgba(242, 169, 34, 0.12)',
+              border: '1px solid rgba(242, 169, 34, 0.3)',
+              borderRadius: '100px', padding: '5px 14px',
+              marginBottom: '20px',
+            }}>
+              <span style={{ fontSize: '14px' }}>🚀</span>
+              <span style={{ fontSize: '12px', fontWeight: 600, color: '#B8860B', fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: '0.02em' }}>
+                launching soon — join the waitlist for early access
+              </span>
+            </div>
             <p style={{ fontSize: '12px', fontWeight: 600, color: '#C4784A', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '12px' }}>
               pricing
             </p>
@@ -139,12 +128,12 @@ export default function PricingPage() {
                   ))}
                 </div>
 
-                <Link href="/app">
+                <Link href="/waitlist">
                   <button
                     className="btn-ghost"
                     style={{ width: '100%', padding: '13px', borderRadius: '13px', fontSize: '15px' }}
                   >
-                    get started — it&apos;s free
+                    join waitlist — it&apos;s free
                   </button>
                 </Link>
               </div>
@@ -193,32 +182,25 @@ export default function PricingPage() {
                   ))}
                 </div>
 
-                <button
-                  onClick={() => handleCheckout(billing)}
-                  disabled={loading}
-                  style={{
-                    width: '100%', padding: '13px', borderRadius: '13px',
-                    backgroundColor: '#FFFFFF', color: '#C4784A',
-                    border: 'none', cursor: loading ? 'not-allowed' : 'pointer',
-                    fontFamily: "'Plus Jakarta Sans', sans-serif",
-                    fontWeight: 700, fontSize: '15px',
-                    transition: 'transform 0.15s ease, box-shadow 0.15s ease',
-                    opacity: loading ? 0.7 : 1,
-                  }}
-                  onMouseEnter={(e) => { if (!loading) { e.currentTarget.style.transform = 'scale(1.02)'; e.currentTarget.style.boxShadow = '0 4px 16px rgba(0,0,0,0.15)'; }}}
-                  onMouseLeave={(e) => { e.currentTarget.style.transform = 'scale(1)'; e.currentTarget.style.boxShadow = 'none'; }}
-                >
-                  {loading ? 'redirecting...' : 'go pro — unlimited messages →'}
-                </button>
-
-                {error && (
-                  <p style={{ fontSize: '12px', color: 'rgba(255,255,255,0.7)', textAlign: 'center', marginTop: '10px' }}>
-                    {error}
-                  </p>
-                )}
+                <Link href="/waitlist">
+                  <button
+                    style={{
+                      width: '100%', padding: '13px', borderRadius: '13px',
+                      backgroundColor: '#FFFFFF', color: '#C4784A',
+                      border: 'none', cursor: 'pointer',
+                      fontFamily: "'Plus Jakarta Sans', sans-serif",
+                      fontWeight: 700, fontSize: '15px',
+                      transition: 'transform 0.15s ease, box-shadow 0.15s ease',
+                    }}
+                    onMouseEnter={(e) => { e.currentTarget.style.transform = 'scale(1.02)'; e.currentTarget.style.boxShadow = '0 4px 16px rgba(0,0,0,0.15)'; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.transform = 'scale(1)'; e.currentTarget.style.boxShadow = 'none'; }}
+                  >
+                    join waitlist — get early access →
+                  </button>
+                </Link>
 
                 <p style={{ fontSize: '12px', color: 'rgba(255,255,255,0.5)', textAlign: 'center', marginTop: '12px' }}>
-                  cancel anytime. no questions asked.
+                  early access · launch discount locked in
                 </p>
               </div>
             </ScrollReveal>

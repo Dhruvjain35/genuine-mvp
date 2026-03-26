@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 interface SiteHeaderProps {
-  activePage?: 'home' | 'app' | 'pricing' | 'about';
+  activePage?: 'home' | 'app' | 'pricing' | 'about' | 'waitlist';
 }
 
 export default function SiteHeader({ activePage }: SiteHeaderProps) {
@@ -21,6 +21,7 @@ export default function SiteHeader({ activePage }: SiteHeaderProps) {
     { href: '/', label: 'home', page: 'home' },
     { href: '/pricing', label: 'pricing', page: 'pricing' },
     { href: '/about', label: 'about', page: 'about' },
+    { href: '/waitlist', label: 'waitlist', page: 'waitlist' },
   ];
 
   return (
@@ -73,12 +74,12 @@ export default function SiteHeader({ activePage }: SiteHeaderProps) {
               {label}
             </Link>
           ))}
-          <Link href="/app">
+          <Link href="/waitlist">
             <button
               className="btn-primary px-5 py-2 rounded-xl text-sm"
               style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
             >
-              try genUine
+              join waitlist
             </button>
           </Link>
         </nav>
@@ -122,12 +123,12 @@ export default function SiteHeader({ activePage }: SiteHeaderProps) {
               {label}
             </Link>
           ))}
-          <Link href="/app" onClick={() => setMenuOpen(false)}>
+          <Link href="/waitlist" onClick={() => setMenuOpen(false)}>
             <button
               className="btn-primary w-full py-3 rounded-xl text-sm mt-4"
               style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
             >
-              try genUine →
+              join waitlist →
             </button>
           </Link>
         </div>
