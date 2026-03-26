@@ -6,9 +6,9 @@ import SiteFooter from './components/SiteFooter';
 import ScrollReveal from './components/ScrollReveal';
 
 const QUOTES = [
-  { quote: 'kinda shocked that it turned out that well', name: 'Dimas' },
-  { quote: 'the replies felt quite natural', name: 'Ruthvika' },
-  { quote: 'it lowk copied my tone', name: 'Suhani' },
+  { quote: 'kinda shocked that it turned out that well', name: 'early user' },
+  { quote: 'the replies felt quite natural', name: 'early user' },
+  { quote: 'it lowk copied my tone', name: 'early user' },
 ];
 
 const STEPS = [
@@ -165,7 +165,7 @@ export default function LandingPage() {
                 <p style={{ fontSize: '13px', color: '#6B5E52', lineHeight: 1.5, marginBottom: '4px' }}>
                   "it lowk copied my tone — I was genuinely surprised"
                 </p>
-                <p style={{ fontSize: '11px', color: '#A08C7C', fontWeight: 600 }}>Suhani</p>
+                <p style={{ fontSize: '11px', color: '#A08C7C', fontWeight: 600 }}>early user</p>
               </div>
             </div>
           </div>

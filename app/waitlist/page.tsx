@@ -8,9 +8,9 @@ import WaitlistCounter from '../components/WaitlistCounter';
 import ScrollReveal from '../components/ScrollReveal';
 
 const QUOTES = [
-  { quote: 'kinda shocked that it turned out that well', name: 'Dimas', role: 'software engineer' },
-  { quote: 'the replies felt quite natural', name: 'Ruthvika', role: 'student' },
-  { quote: 'it lowk copied my tone', name: 'Suhani', role: 'early user' },
+  { quote: 'kinda shocked that it turned out that well', name: 'early user', role: '' },
+  { quote: 'the replies felt quite natural', name: 'early user', role: '' },
+  { quote: 'it lowk copied my tone', name: 'early user', role: '' },
 ];
 
 const FAQS = [
