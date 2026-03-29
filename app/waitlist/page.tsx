@@ -41,6 +41,11 @@ export default function WaitlistPage() {
 
   return (
     <div style={{ backgroundColor: '#FAF9F7', color: '#2D2D2D', minHeight: '100vh' }}>
+
+      {/* Hidden form for Netlify build-time detection */}
+      <form name="waitlist" data-netlify="true" hidden>
+        <input type="email" name="email" />
+      </form>
       <SiteHeader />
 
       {/* ── HERO ── */}
