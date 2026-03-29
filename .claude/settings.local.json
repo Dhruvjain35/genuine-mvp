@@ -37,7 +37,9 @@
       "Bash(powershell -command \"\\(Test-NetConnection -ComputerName localhost -Port 3000\\).TcpTestSucceeded\")",
       "Bash(echo \"exit: $?\")",
       "Bash(powershell -command \"Get-NetTCPConnection -LocalPort 3000 -ErrorAction SilentlyContinue | Select-Object LocalPort,State,OwningProcess\")",
-      "Bash(powershell -command \"Stop-Process -Id 25044 -Force; Start-Sleep 2; Get-NetTCPConnection -LocalPort 3000 -ErrorAction SilentlyContinue\")"
+      "Bash(powershell -command \"Stop-Process -Id 25044 -Force; Start-Sleep 2; Get-NetTCPConnection -LocalPort 3000 -ErrorAction SilentlyContinue\")",
+      "WebFetch(domain:ntl.fyi)",
+      "WebFetch(domain:opennext.js.org)"
     ]
   }
 }
