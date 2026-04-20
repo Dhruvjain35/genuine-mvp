@@ -1,23 +1,15 @@
 'use client';
 
-import React, { Suspense } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import dynamic from 'next/dynamic';
-
-const Spline = dynamic(() => import('@splinetool/react-spline'), {
-  ssr: false,
-  loading: () => <div className="w-full h-full bg-transparent" />
-});
 
 export default function Hero() {
   return (
     <section className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[#FAF9F7]">
-      {/* Background Spline Element - Minimal and Premium */}
-      <div className="absolute inset-0 z-0 opacity-60">
-        <Suspense fallback={null}>
-          <Spline scene="https://prod.spline.design/6Wq1Q7YRyS2Zv3h8/scene.splinecode" />
-        </Suspense>
-      </div>
+      {/* Premium gradient background */}
+      <div className="absolute inset-0 z-0 opacity-40 bg-gradient-to-br from-[#C4784A]/10 via-transparent to-[#C4784A]/5" />
+      <div className="absolute top-20 right-0 w-96 h-96 bg-[#C4784A]/5 rounded-full blur-3xl" />
+      <div className="absolute -bottom-20 left-1/4 w-80 h-80 bg-[#C4784A]/5 rounded-full blur-3xl" />
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 text-center">
